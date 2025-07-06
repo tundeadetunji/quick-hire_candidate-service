@@ -10,6 +10,6 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY --from=builder /app/candidate-service/target/candidate-service-*.jar app.jar
+COPY --from=builder /app/target/candidate-service-*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
