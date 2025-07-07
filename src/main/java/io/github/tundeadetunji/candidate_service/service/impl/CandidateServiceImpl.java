@@ -18,6 +18,7 @@ import java.util.List;
 
 import static io.github.tundeadetunji.candidate_service.constants.ExceptionMessages.CANDIDATE_NOT_FOUND;
 import static io.github.tundeadetunji.candidate_service.constants.ExceptionMessages.JOB_NOT_FOUND;
+import static io.github.tundeadetunji.candidate_service.constants.InlineStrings.CANDIDATE_REGISTERED;
 import static io.github.tundeadetunji.candidate_service.constants.InlineStrings.NEW_APPLICATION;
 
 @Service
@@ -35,6 +36,11 @@ public class CandidateServiceImpl implements CandidateService {
         //should send message to user's email in real prod
         //say, send notification to dedicated microservice by RabbitMq
         //but omitted for brevity in this mock
+
+        notificationProducer.send(NotificationMessage.builder()
+                .subject(CANDIDATE_REGISTERED)
+                .body("New candidate registered: " + saved.getFirstName())
+                .build());
 
         return saved;
     }
