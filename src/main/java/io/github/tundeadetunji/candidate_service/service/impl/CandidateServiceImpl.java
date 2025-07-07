@@ -20,7 +20,7 @@ import static io.github.tundeadetunji.candidate_service.constants.ExceptionMessa
 import static io.github.tundeadetunji.candidate_service.constants.ExceptionMessages.JOB_NOT_FOUND;
 import static io.github.tundeadetunji.candidate_service.constants.InlineStrings.CANDIDATE_REGISTERED;
 import static io.github.tundeadetunji.candidate_service.constants.InlineStrings.NEW_APPLICATION;
-
+import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class CandidateServiceImpl implements CandidateService {
@@ -29,6 +29,7 @@ public class CandidateServiceImpl implements CandidateService {
     private final JobStrategy jobStrategy;
     private final NotificationProducer notificationProducer;
 
+    @Transactional
     @Override
     public Candidate registerAccount(Candidate candidate) {
         Candidate saved = candidateStrategy.save(candidate);
@@ -45,6 +46,7 @@ public class CandidateServiceImpl implements CandidateService {
         return saved;
     }
 
+    @Transactional
     @Override
     public Candidate updateAccount(Long id, Candidate candidate) {
         Candidate updated = candidateStrategy.update(id, candidate);
@@ -56,6 +58,7 @@ public class CandidateServiceImpl implements CandidateService {
         return updated;
     }
 
+    @Transactional
     @Override
     public boolean deleteAccount(Long id) {
         Candidate candidate = candidateStrategy.findById(id)
@@ -85,6 +88,7 @@ public class CandidateServiceImpl implements CandidateService {
         return candidate.getApplications();
     }
 
+    @Transactional
     @Override
     public CandidateApplication applyToJob(Long postId, Long candidateId, Long jobId) {
         Candidate candidate = candidateStrategy.findById(candidateId)

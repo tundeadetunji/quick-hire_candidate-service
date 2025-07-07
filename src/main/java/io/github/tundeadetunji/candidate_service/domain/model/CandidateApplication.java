@@ -29,6 +29,10 @@ public class CandidateApplication {
     @Enumerated(EnumType.STRING)
     private ApplicationStatus applicationStatus;
 
+    @Version
+    private Long version;
+
+
     public static CandidateApplication of(Candidate candidate, Post post, Long jobId) {
         return CandidateApplication.builder()
                 .candidate(candidate)

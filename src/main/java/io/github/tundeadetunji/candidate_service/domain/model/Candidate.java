@@ -47,6 +47,9 @@ public class Candidate {
     @OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CandidateApplication> applications = new ArrayList<>();
 
+    @Version
+    private Long version;
+
     public static Candidate from(CandidateDto dto){
         return Candidate.builder()
                 .firstName(dto.getFirstName())
