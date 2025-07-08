@@ -1,22 +1,23 @@
 ![CI](https://github.com/tundeadetunji/quick-hire_candidate-service/actions/workflows/ci.yml/badge.svg)
 
-## 📬 Messaging and Observability
+## 📬 Messaging
 ## 🧪 Testing
 ## ⚙️ Concurrency & Transactions
 ## 📘 Pagination
 
 
-## 📬 Messaging and Observability
+## 📬 Messaging
 
 This service **publishes messages to RabbitMQ** when a candidate applies for a job.
 
-- The message is routed to the `recruiter.notify` queue via `app.exchange`.
+- The message is routed through `app.exchange` using the `recruiter.notify` routing key.
 - The payload includes details like candidate name and job post applied for.
-- The `admin-service` listens and logs all messages for monitoring or testing.
+- The `recruiter-service` listens for this message, logs it, and forwards a copy to `admin.notify`.
 
 To observe messaging:
-- Use Swagger to trigger a job application (via `/apply`).
-- Then call `/admin/messages` to verify the message was received.
+1. Use Swagger to apply to a job (`POST /apply`).
+2. Check logs in `recruiter-service` for receipt.
+3. Call `/admin/messages` to verify the final message delivery.
 
 ## 🧪 Testing
 
