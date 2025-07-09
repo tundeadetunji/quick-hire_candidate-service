@@ -46,6 +46,19 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 2
         automaticTransitionFromOpenToHalfOpenEnabled: true
 
+  retry:
+    instances:
+      recruiterNotify:
+        maxAttempts: 3
+        waitDuration: 500ms
+
+  ratelimiter:
+    instances:
+      recruiterNotify:
+        limitForPeriod: 5
+        limitRefreshPeriod: 10s
+        timeoutDuration: 500ms
+
 mq:
   queue: recruiter.notifications
   exchange: app.exchange

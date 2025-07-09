@@ -118,4 +118,3 @@ public class CandidateServiceImpl implements CandidateService {
         return application;
     }
 }
-//.candidateId(candidate.getId())
