@@ -1,6 +1,3 @@
-![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=spring-boot)
-![RabbitMQ](https://img.shields.io/badge/Messaging-RabbitMQ-orange?logo=rabbitmq)
 ![CI](https://github.com/tundeadetunji/quick-hire_candidate-service/actions/workflows/ci.yml/badge.svg)
 
 # 🧑‍💼 Candidate Service – QuickHire+ Microservices MVP
@@ -27,6 +24,17 @@ With **QuickHire+**, candidates can register and apply for jobs posted by recrui
                                        | - In-memory store      |
                                        +------------------------+
 ```
+
+---
+
+🧰 Tech Stack:
+- ☕ Java 17
+- 🌱 Spring Boot 3.x
+- 📬 RabbitMQ (Messaging)
+- 🛡️ Resilience4j (Observability)
+- 🧪 JUnit 5, 🎭 Mockito (Testing)
+- 🗄️ H2 / PostgreSQL (DB Layer)
+- ⚙️ CI/CD via GitHub Actions
 
 ---
 
