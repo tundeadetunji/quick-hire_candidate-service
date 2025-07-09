@@ -9,6 +9,9 @@ With **QuickHire+**, candidates can register and apply for jobs posted by recrui
 
 📄 **API Docs:** [View Swagger UI](https://quick-hire-candidate-service.onrender.com/swagger-ui/index.html)
 
+<br/>
+<br/>
+
 ```  
 +-------------------+       RabbitMQ        +-------------------+
 |  Candidate Service|  ───────────────▶     |  Recruiter Service|
