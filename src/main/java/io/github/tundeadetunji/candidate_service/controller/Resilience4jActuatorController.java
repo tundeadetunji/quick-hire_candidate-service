@@ -22,7 +22,7 @@ public class Resilience4jActuatorController {
     public Mono<String> circuitBreakers() {
         return webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/actuator/resilience4j.circuitbreakers")
+                .uri("/actuator/circuitbreakers")
                 .retrieve()
                 .bodyToMono(String.class);
     }
@@ -32,7 +32,7 @@ public class Resilience4jActuatorController {
     public Mono<String> retries() {
         return webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/actuator/resilience4j.retries")
+                .uri("/actuator/retries")
                 .retrieve()
                 .bodyToMono(String.class);
     }
@@ -42,7 +42,7 @@ public class Resilience4jActuatorController {
     public Mono<String> ratelimiters() {
         return webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/actuator/resilience4j.ratelimiters")
+                .uri("/actuator/ratelimiters")
                 .retrieve()
                 .bodyToMono(String.class);
     }
