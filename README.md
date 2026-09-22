@@ -103,3 +103,17 @@ Not applicable in this service.
 
 - `/viewApplications` returns full list (assumed low volume per candidate).
 
+---
+
+⚠️ Deployment Note on Cold Start Behavior (Render)
+
+QuickHire+ is deployed on [Render](https://render.com).
+
+When inactive for some time, services may enter a **"cold" state**, resulting in:
+
+- Initial request latency (10–30s) as services spin up
+- Temporary 502/504 responses until startup completes
+
+🧪 To trigger warm-up manually:
+- Open Swagger UI or hit a simple `/health` or `/actuator/info` endpoint
+- Wait a few seconds for services to fully boot
